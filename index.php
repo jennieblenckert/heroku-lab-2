@@ -8,7 +8,7 @@ $connection = new PDO('pgsql:host=ec2-54-228-213-36.eu-west-1.compute.amazonaws.
 if (!$connection) {
     echo "no connect";
 } else {
-
+echo "connect";
 //вход под существующем пользователем
     if (isset($_POST['username']) && isset($_POST['pass'])) {
 
