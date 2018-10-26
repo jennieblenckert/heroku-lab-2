@@ -6,26 +6,28 @@
 $connection = new PDO('pgsql:host=ec2-54-228-213-36.eu-west-1.compute.amazonaws.com dbname=da37eh2ap5epo9 user=kadwtexnmwbhzo password=1JP2Vdv3EzBxJ_VRDdP9fp01UP');
 
 if (!$connection) {
-    echo "no connect";
+    echo "no connect ";
 } else {
 echo "connect";
 //вход под существующем пользователем
     if (isset($_POST['username']) && isset($_POST['pass'])) {
-        echo "вход под существующем пользователем";
+        echo "вход под существующем пользователем ";
         $responceApp = new User_Data($_POST['username'], $_POST['pass'], $connection);
         echo $responceApp->getUserData();
 
     }
     else {
-    echo "не вход под существующем пользователем";}
+    echo "не вход под существующем пользователем ";}
 
 
 //создание нового пользователя
     if (isset($_POST['new-username']) && isset($_POST['new-pass'])) {
-        echo "создание нового пользователя";
+        echo "создание нового пользователя ";
         $responceApp = new User_Data($_POST['new-username'], $_POST['new-pass'], $connection);
         echo $responceApp->setNewUser();
-
+    }
+    else {
+    echo "не оздание нового пользователя ";
     }
 }
 
